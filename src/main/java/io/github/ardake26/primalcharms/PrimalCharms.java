@@ -7,6 +7,8 @@ import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import io.github.ardake26.primalcharms.item.ModItems;
+
 public class PrimalCharms implements ModInitializer {
 	public static final String MOD_ID = "primal-charms";
 
@@ -21,7 +23,8 @@ public class PrimalCharms implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Primal Charms is launching");
+		ModItems.initialize();
 	}
 
 	public static Identifier id(String path) {
