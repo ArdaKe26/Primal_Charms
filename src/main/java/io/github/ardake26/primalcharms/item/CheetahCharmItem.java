@@ -12,6 +12,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
@@ -30,5 +31,14 @@ public class CheetahCharmItem extends TrinketItem {
                         AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
         return map;
+    }
+
+    @Override
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        if (!entity.level().isClientSide()) {
+            if (entity instanceof Player player) {
+                player.causeFoodExhaustion(CHEETAH_CHARM_HUNGER_COST);
+            }
+        }
     }
 }
