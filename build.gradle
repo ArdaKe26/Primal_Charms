@@ -4,6 +4,23 @@ plugins {
 }
 
 repositories {
+	maven {
+		name = 'Nucleoid'
+		url = 'https://maven.nucleoid.xyz/releases'
+		// The published metadata (pom) for this Trinkets build has the wrong group,
+		// so Gradle rejects it. Use only the jar file instead.
+		metadataSources {
+			artifact()
+		}
+		content {
+			includeGroup 'eu.pb4.fork'
+		}
+	}
+	// Cardinal Components API (required by Trinkets)
+	maven {
+		name = 'Ladysnake Mods'
+		url = 'https://maven.ladysnake.org/releases'
+	}
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
@@ -30,6 +47,12 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+	// Trinkets (accessory slots for the charms)
+	modImplementation "eu.pb4.fork:trinkets:${project.trinkets_version}"
+	// Trinkets needs these, but we skip its broken metadata, so they are added by hand
+	modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-base:${project.cca_version}"
+	modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
 }
 
 processResources {
