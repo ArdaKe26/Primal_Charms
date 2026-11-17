@@ -1,3 +1,5 @@
 {
-    "item.primal-charms.cheetah_charm": "Cheetah Charm"
+  "item.primal-charms.common_cheetah_charm": "Cheetah Charm",
+  "item.primal-charms.rare_cheetah_charm": "Rare Cheetah Charm",
+  "item.primal-charms.legendary_cheetah_charm": "Legendary Cheetah Charm"
 }

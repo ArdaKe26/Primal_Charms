@@ -1,5 +1,7 @@
 {
-    "values": [
-        "primal-charms:cheetah_charm"
-    ]
+  "values": [
+    "primal-charms:common_cheetah_charm",
+    "primal-charms:rare_cheetah_charm",
+    "primal-charms:legendary_cheetah_charm"
+  ]
 }

@@ -17,8 +17,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 public class CheetahCharmItem extends TrinketItem {
-    public CheetahCharmItem(Item.Properties properties) {
+    private final float hungerCost;
+    private final double speedBonus;
+
+    public CheetahCharmItem(Item.Properties properties, double speedBonus, float hungerCost) {
         super(properties);
+        this.hungerCost = hungerCost;
+        this.speedBonus = speedBonus;
     }
 
     @Override
@@ -27,7 +32,7 @@ public class CheetahCharmItem extends TrinketItem {
         Multimap<Holder<Attribute>, AttributeModifier> map = super.getModifiers(stack, slot, entity, slotIdentifier);
 
         map.put(Attributes.MOVEMENT_SPEED,
-                new AttributeModifier(slotIdentifier, CHEETAH_CHARM_SPEED_BUFF,
+                new AttributeModifier(slotIdentifier, speedBonus,
                         AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
         return map;
@@ -37,7 +42,7 @@ public class CheetahCharmItem extends TrinketItem {
     public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         if (!entity.level().isClientSide()) {
             if (entity instanceof Player player) {
-                player.causeFoodExhaustion(CHEETAH_CHARM_HUNGER_COST);
+                player.causeFoodExhaustion(hungerCost);
             }
         }
     }
