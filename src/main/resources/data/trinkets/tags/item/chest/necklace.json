@@ -2,6 +2,9 @@
   "values": [
     "primal-charms:common_cheetah_charm",
     "primal-charms:rare_cheetah_charm",
-    "primal-charms:legendary_cheetah_charm"
+    "primal-charms:legendary_cheetah_charm",
+    "primal-charms:common_bear_charm",
+    "primal-charms:rare_bear_charm",
+    "primal-charms:legendary_bear_charm"
   ]
 }

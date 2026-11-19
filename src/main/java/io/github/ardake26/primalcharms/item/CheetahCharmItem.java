@@ -2,8 +2,6 @@ package io.github.ardake26.primalcharms.item;
 
 import com.google.common.collect.Multimap;
 
-import static io.github.ardake26.primalcharms.ModConstants.CHEETAH_CHARM_CONSTANTS.*;
-
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
 import net.minecraft.core.Holder;

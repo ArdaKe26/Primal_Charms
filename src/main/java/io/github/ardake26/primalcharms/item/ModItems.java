@@ -3,6 +3,7 @@ package io.github.ardake26.primalcharms.item;
 import java.util.function.Function;
 
 import io.github.ardake26.primalcharms.PrimalCharms;
+import io.github.ardake26.primalcharms.ModConstants.BEAR_CHARM_CONSTANTS;
 import io.github.ardake26.primalcharms.ModConstants.CHEETAH_CHARM_CONSTANTS;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -24,6 +25,22 @@ public class ModItems {
                         new Item.Properties().stacksTo(CHEETAH_CHARM_CONSTANTS.STACK_SIZE).rarity(Rarity.EPIC),
                         props -> new CheetahCharmItem(props, CHEETAH_CHARM_CONSTANTS.LEGENDARY_CHEETAH_CHARM_SPEED_BUFF,
                                         CHEETAH_CHARM_CONSTANTS.LEGENDARY_CHEETAH_CHARM_HUNGER_COST));
+
+        public static final Item COMMON_BEAR_CHARM = registerItem(BEAR_CHARM_CONSTANTS.COMMON_ITEM_ID,
+                        new Item.Properties().stacksTo(BEAR_CHARM_CONSTANTS.STACK_SIZE).rarity(Rarity.UNCOMMON),
+                        props -> new BearCharmItem(props, BEAR_CHARM_CONSTANTS.COMMON_BEAR_CHARM_MAX_HEALTH,
+                                        BEAR_CHARM_CONSTANTS.COMMON_BEAR_CHARM_KNOCKBACK_RESISTANCE,
+                                        BEAR_CHARM_CONSTANTS.COMMON_BEAR_CHARM_SPEED_COST));
+        public static final Item RARE_BEAR_CHARM = registerItem(BEAR_CHARM_CONSTANTS.RARE_ITEM_ID,
+                        new Item.Properties().stacksTo(BEAR_CHARM_CONSTANTS.STACK_SIZE).rarity(Rarity.RARE),
+                        props -> new BearCharmItem(props, BEAR_CHARM_CONSTANTS.RARE_BEAR_CHARM_MAX_HEALTH,
+                                        BEAR_CHARM_CONSTANTS.RARE_BEAR_CHARM_KNOCKBACK_RESISTANCE,
+                                        BEAR_CHARM_CONSTANTS.RARE_BEAR_CHARM_SPEED_COST));
+        public static final Item LEGENDARY_BEAR_CHARM = registerItem(BEAR_CHARM_CONSTANTS.LEGENDARY_ITEM_ID,
+                        new Item.Properties().stacksTo(BEAR_CHARM_CONSTANTS.STACK_SIZE).rarity(Rarity.EPIC),
+                        props -> new BearCharmItem(props, BEAR_CHARM_CONSTANTS.LEGENDARY_BEAR_CHARM_MAX_HEALTH,
+                                        BEAR_CHARM_CONSTANTS.LEGENDARY_BEAR_CHARM_KNOCKBACK_RESISTANCE,
+                                        BEAR_CHARM_CONSTANTS.LEGENDARY_BEAR_CHARM_SPEED_COST));
 
         private static Item registerItem(String itemName, Item.Properties properties,
                         Function<Item.Properties, Item> factory) {
